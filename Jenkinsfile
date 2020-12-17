@@ -13,7 +13,7 @@ pipeline {
         stage ('Execute Tests') {
                     steps {
                         withMaven(maven : 'maven_3_6_2') {
-                            sh "clean test verify -Dcucumber.option='-tags @Regression' -Dwebdriver.base.url=$usr -Dusr=$user -Dpwd=$password"
+                            sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
 
 
                             publishHTML (target: [
