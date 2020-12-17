@@ -16,9 +16,9 @@ pipeline {
                             sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
 
                             publishHTML (target: [
-                                                        reportDir: 'target/site/serenity',
-                                                        reportFiles: 'index.html',
-                                                        reportName: "Smoke tests report"
+                                         reportDir: 'target/site/serenity',
+                                         reportFiles: 'index.html',
+                                         reportName: "Regression tests report"
                                                 ])
                        }
                     }
