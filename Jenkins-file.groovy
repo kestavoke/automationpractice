@@ -4,7 +4,7 @@ node {
     }
     stage('Smoke') {
         try {
-            def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
+            def mvnHome = tool name: 'Apache Maven 3.6.2', type: 'maven'
             sh "${mvnHome}/bin/mvn clean verify -Dcucumber.options='--tags @Smoke'"
         } catch (err) {
 
@@ -18,7 +18,7 @@ node {
     }
     stage('Regression') {
         try {
-            def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
+            def mvnHome = tool name: 'Apache Maven 3.6.2', type: 'maven'
             sh "${mvnHome}/bin/mvn clean verify -Dcucumber.options='--tags @Regression'"
         } catch (err) {
 
