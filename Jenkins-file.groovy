@@ -29,6 +29,6 @@ node {
         }
     }
     stage('Results') {
-        junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
+        junit '**/target/test-reports/*.xml'
     }
 }
