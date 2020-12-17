@@ -13,9 +13,7 @@ pipeline {
         stage ('Execute Tests') {
                     steps {
                         withMaven(maven : 'maven_3_6_2') {
-
-                            sh 'mvn verify -Dwebdriver.chrome.driver=drivers/chrome/chromedriver.exe'
-
+                            sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
 
                             publishHTML (target: [
                                                         reportDir: 'target/site/serenity',
@@ -26,13 +24,20 @@ pipeline {
                     }
                 }
 
-        stage ('Deployment Stage') {
+        stage ('Quality Analysis') {
                     steps {
                          withMaven(maven : 'maven_3_6_2') {
-                             sh 'mvn deploy'
+
                         }
                     }
                  }
+                 stage ('Post Actions') {
+                                     steps {
+                                          withMaven(maven : 'maven_3_6_2') {
+
+                                         }
+                                     }
+                                  }
         }
 
 }
