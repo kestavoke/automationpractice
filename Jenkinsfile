@@ -13,7 +13,9 @@ pipeline {
         stage ('Execute Tests') {
                     steps {
                         withMaven(maven : 'maven_3_6_2') {
-                            sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
+
+                            sh 'mvn verify -Dwebdriver.chrome.driver=drivers/chrome/chromedriver.exe'
+
 
                             publishHTML (target: [
                                                         reportDir: 'target/site/serenity',
