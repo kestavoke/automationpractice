@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        stage ('Execute Tests Stage') {
+        stage ('Execute Tests') {
                     steps {
                         withMaven(maven : 'maven_3_6_2') {
                             sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
