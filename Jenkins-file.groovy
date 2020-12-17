@@ -1,4 +1,7 @@
 node {
+    tools {
+        maven 'M3'
+    }
     stage('Git checkout') { // for display purposes
         git 'https://kestavoke@bitbucket.org/kestavoke/automationpractice.git'
     }
