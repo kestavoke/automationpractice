@@ -4,8 +4,9 @@ node {
     }
     stage('Smoke') {
         try {
-            def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
-            sh "mvn clean verify -Dcucumber.options='--tags @Smoke'"
+            withMaven(maven: 'mvn') {
+                sh "mvn clean verify -Dcucumber.options='--tags @Smoke'"
+            }
         } catch (err) {
 
         } finally {
