@@ -1,4 +1,4 @@
-@Regression
+#@Regression
 Feature: Verify the page title and create a new user account
   As a new user, I want ot be able to verify the page title, provide user details and register via the website.
 

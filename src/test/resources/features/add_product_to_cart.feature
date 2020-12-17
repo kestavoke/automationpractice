@@ -1,4 +1,4 @@
-#@Regression
+@Regression
 Feature: As an existing user, I want to be able to Add random items to the cart
   with random quantities and checkout
 
@@ -14,6 +14,8 @@ Feature: As an existing user, I want to be able to Add random items to the cart
     And user accept terms and conditions
     When user selects payment option and confirm order
     Then user should see order confirmation message
+    When user clicks logout option
+    Then user should be be logged out successfully
   Examples:
     |s_qty|d_qty|email            |password|
     |3    |2    |test007@email.com|Test@123|

@@ -3,6 +3,7 @@ package com.automationpractice.steps;
 import com.automationpractice.pages.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.pages.PageObject;
 
@@ -19,6 +20,7 @@ public class ProductShoppingSteps extends PageObject {
     private ShippingPage shippingPage;
     private PaymentPage paymentPage;
     private OrderConfirmationPage confirmOrder;
+    private MyAccountPage myAccountPage;
 
     @Given("^user is on the store homepage$")
     public void homepage() {
@@ -79,10 +81,22 @@ public class ProductShoppingSteps extends PageObject {
         paymentPage.confirmOrder();
     }
 
-    @When("^user should see order confirmation message$")
+    @Then("^user should see order confirmation message$")
     public void confirmOrderMsg() {
         confirmOrder.confirmOrderMSG();
     }
+
+    @When("^user clicks logout option$")
+    public void userLogOut() {
+        myAccountPage.logOutButton();
+    }
+
+    @Then("^user should be be logged out successfully$")
+    public void confirmLogOut() {
+        homePage.signInOption();
+    }
+
+
 
 
 
