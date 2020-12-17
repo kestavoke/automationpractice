@@ -4,7 +4,7 @@ node {
     }
     stage('Smoke') {
         try {
-            sh "mvn clean verify -Dtags='type:Smoke'"
+            sh "mvn clean verify -Dcucumber.options='--tags @Smoke'"
         } catch (err) {
 
         } finally {
@@ -17,7 +17,7 @@ node {
     }
     stage('Regression') {
         try {
-            sh "mvn verify -Dtags='type:Regression'"
+            sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
         } catch (err) {
 
         } finally {
