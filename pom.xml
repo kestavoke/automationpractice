@@ -243,24 +243,4 @@
         <scope>test</scope>
     </dependency>
 </dependencies>
-    <profiles>
-        <profile>
-            <id>firefox</id>
-            <properties>
-                <webdriver.driver>firefox</webdriver.driver>
-            </properties>
-        </profile>
-        <profile>
-            <id>chrome</id>
-            <properties>
-                <webdriver.driver>chrome</webdriver.driver>
-            </properties>
-        </profile>
-        <profile>
-            <id>phantomjs</id>
-            <properties>
-                <webdriver.driver>phantomjs</webdriver.driver>
-            </properties>
-        </profile>
-    </profiles>
 </project>
