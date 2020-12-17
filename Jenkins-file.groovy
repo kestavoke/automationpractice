@@ -1,12 +1,10 @@
 node {
-    tools {
-        maven 'M3'
-    }
     stage('Git checkout') { // for display purposes
         git 'https://kestavoke@bitbucket.org/kestavoke/automationpractice.git'
     }
     stage('Smoke') {
         try {
+            def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
             sh "mvn clean verify -Dcucumber.options='--tags @Smoke'"
         } catch (err) {
 
