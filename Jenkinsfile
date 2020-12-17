@@ -10,23 +10,19 @@ pipeline {
             }
         }
 
-        stage('Execute Tests') {
-        steps {
-                try {
-                withMaven(maven : 'maven_3_6_2') {
-                  sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
-                }
-                } catch (err) {
+        stage ('Execute Tests Stage') {
+                    steps {
+                        withMaven(maven : 'maven_3_6_2') {
+                            sh "mvn clean verify -Dcucumber.options='--tags @Regression'"
 
-                } finally {
-                    publishHTML (target: [
-                            reportDir: 'target/site/serenity',
-                            reportFiles: 'index.html',
-                            reportName: "Smoke tests report"
-                    ])
+                            publishHTML (target: [
+                                                        reportDir: 'target/site/serenity',
+                                                        reportFiles: 'index.html',
+                                                        reportName: "Smoke tests report"
+                                                ])
+                       }
+                    }
                 }
-                }
-            }
 
         stage ('Deployment Stage') {
                     steps {
@@ -35,6 +31,6 @@ pipeline {
                         }
                     }
                  }
-         }
+        }
 
 }
